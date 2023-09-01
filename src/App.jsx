@@ -6,12 +6,10 @@ import Login from "./components/Login";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
 import NotFound from "./components/NotFound";
-import NavBar from "./components/Navbar";
 
 function App() {
   return (
     <>
-      <NavBar />
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/registro" element={<Navigate replace to="/register" />} />
