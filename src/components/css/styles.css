@@ -1,0 +1,102 @@
+/* Colocar aquí CSS "propio". */
+:root {
+  --main-btn-color: #08a0e9;
+}
+
+* {
+  list-style: none;
+  font-family: "Roboto", sans-serif;
+}
+
+.nav-position {
+  position: sticky;
+  top: 0;
+}
+
+.nav-links {
+  text-decoration: none;
+  color: black;
+}
+.nav-icons {
+  font-size: 1.5rem;
+  color: black;
+}
+.nav-icons-btn {
+  font-size: 1.2rem;
+}
+.nav-btn {
+  background-color: var(--main-btn-color);
+  color: white;
+}
+
+.nav-btn:hover {
+  background-color: #098cc9;
+  color: white;
+}
+
+.home-tweet {
+  border: none;
+  resize: none;
+}
+
+.home-tweet:focus {
+  box-shadow: none;
+}
+
+#header {
+  align-items: flex-start;
+  position: relative;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+#logoutBtn {
+  width: 100%;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+#tweetBtn {
+  width: 100%;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+#tweetLogo {
+  position: relative;
+  left: 0;
+}
+
+@media (max-width: 1199px) {
+  .nav-list {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 800px) {
+  #headerDiv1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  #header {
+    align-items: flex;
+  }
+  #tweetLogo {
+    position: absolute;
+    align-items: center;
+  }
+  #navMenu.li {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+}

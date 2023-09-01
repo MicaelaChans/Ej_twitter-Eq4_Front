@@ -1,0 +1,40 @@
+.profile-img {
+  width: 150px;
+  height: 150px;
+  margin-top: 5rem;
+  border-radius: 50%;
+  border: 0.3rem solid white;
+  object-fit: cover;
+}
+.background {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(0deg, rgba(255, 255, 255, 1) 45%, rgba(8, 160, 233, 1) 15%);
+}
+.profile-text {
+  font-size: 0.7rem;
+  display: inline;
+}
+
+a > span {
+  font-weight: 900;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+.container-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icono {
+  margin-right: 1rem;
+}
+
+.borderTweet {
+  border-bottom: 4px solid #08a0e9;
+  display: inline-block;
+}

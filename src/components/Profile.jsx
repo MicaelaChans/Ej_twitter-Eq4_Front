@@ -3,6 +3,7 @@ import NavBar from "./NavBar";
 import Tweet from "./Tweet";
 import Sidebar from "./Sidebar";
 import LikeButton from "./LikeButton";
+import "./css/profile.css"
 
 import React from "react";
 function Profile() {
