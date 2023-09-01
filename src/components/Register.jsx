@@ -6,15 +6,11 @@ function Register() {
     <div className="row m-0">
       <div className="col-12 col-md-6 col-lg-8" id="colum1">
         <img src="img/twitter.svg" id="logoTwitter" alt="logoTwitter" />
-
         <h3>Hi! Welcome to Twitter Clone 👋</h3>
       </div>
-
       <div className="col-md-6 col-lg-4" id="colum2">
         <h2 className="text-start">Sign up</h2>
-
         <p>Create an account and start using twitter</p>
-
         <form method="POST" action="/register" enctype="multipart/form-data">
           <div className="mb-3 mt-3">
             <input
@@ -26,7 +22,6 @@ function Register() {
               placeholder="First name"
             />
           </div>
-
           <div className="mb-3 mt-3">
             <input
               type="lastname"
@@ -37,7 +32,6 @@ function Register() {
               placeholder="Last name"
             />
           </div>
-
           <div className="mb-3 mt-3">
             <input
               type="email"
@@ -48,7 +42,6 @@ function Register() {
               placeholder="Email"
             />
           </div>
-
           <div className="mb-3 mt-3">
             <input
               type="username"
@@ -59,7 +52,6 @@ function Register() {
               placeholder="Username"
             />
           </div>
-
           <div className="mb-3 mt-3">
             <input
               type="file"
@@ -69,7 +61,6 @@ function Register() {
               name="profilePic"
             />
           </div>
-
           <div className="mb-3 mt-3">
             <input
               type="password"
@@ -80,7 +71,6 @@ function Register() {
               placeholder="Password"
             />
           </div>
-
           <button
             type="submit"
             className="btn col-12 mx-auto rounded-pill"
@@ -88,7 +78,6 @@ function Register() {
           >
             Sign up
           </button>
-
           <p className="text-center mt-4" id="aSingIn">
             Already have an account? <a href="/login">Sign in</a>
           </p>

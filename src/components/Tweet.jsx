@@ -3,27 +3,50 @@ import LikeButton from "./LikeButton";
 
 function Tweet() {
   return (
-    <div className="row">
-      <div className="col-1">
-        <img className="home-img" src="" alt="profileImg" />
-      </div>
-      <div className="col-11">
-        <form action="/tweet" method="post">
-          <textarea
-            name="content"
-            className="form-control home-tweet"
-            id="textarea"
-            maxlength="140"
-            cols="4"
-            rows="3"
-            placeholder="What's happening?"
-          ></textarea>
-          <div className="d-flex justify-content-end mt-2 mb-2">
-            <button className="btn rounded-pill" type="submit" id="btnTweet">
-              Tweet
-            </button>
+    <div className="form-floating mt-2">
+      <div className="row border-bottom my-2 py-3">
+        <div className="col-1">
+          <img src="./img/profile.jpg" alt="" className="home-img" />
+        </div>
+        <div className="col-11">
+          <div id="dat1">
+            <a href="/" className="link-dark">
+              <h5 className="m-0 d-inline-block">
+                user.firstname user.lastname
+              </h5>
+            </a>
+            <p className="m-0 d-inline-block">
+              user.username · tweet.createdAt.toLocaleDateString
+            </p>
           </div>
-        </form>
+          <div>
+            <p className="m-0">weet.content</p>
+          </div>
+          <div className="container-flex">
+            <div className="d-flex align-items-center">
+              <div className="icono d-flex align-items-center">
+                <a href="/tweet/like/" className="p-0 me-2 heart">
+                  <i className="bi bi-heart-fill text-danger"></i>
+                  <i className="bi bi-heart-fill text-dark"></i>
+                </a>
+                <p className="m-0">tweet.likes.length</p>
+              </div>
+              <div className="icono">
+                <i className="bi bi-repeat"></i>
+              </div>
+              <div className="icono">
+                <i className="bi bi-chat"></i>
+              </div>
+            </div>
+            <div className="d-flex">
+              <form action="/tweet/tweet.id?_method=DELETE" method="get">
+                <button href="tweet.id">
+                  <i className="bi bi-trash-fill color: tomato"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

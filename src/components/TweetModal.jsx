@@ -1,6 +1,6 @@
 import React from "react";
-import NewTweet from "./NewTweet";
 import Modal from "react-bootstrap/Modal";
+import NewTweet from "./NewTweet";
 
 function TweetModal() {
   return (
@@ -11,7 +11,7 @@ function TweetModal() {
         </Modal.Header>
 
         <Modal.Body>
-          <p> NewTweet </p>
+          <NewTweet />
         </Modal.Body>
       </Modal>
     </div>
