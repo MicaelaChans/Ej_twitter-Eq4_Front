@@ -1,5 +1,7 @@
 import React from "react";
 import "./css/sidebar.css"
+import "./css/home.css"
+import "./css/styles.css"
 
 function Sidebar() {
   return (
