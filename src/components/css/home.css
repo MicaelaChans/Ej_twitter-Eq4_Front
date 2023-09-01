@@ -1,0 +1,51 @@
+.home-img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+#btnTweet {
+  background-color: #08a0e9;
+  color: white;
+}
+
+.borderFollowers {
+  border-bottom: 4px solid #08a0e9;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+.container-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icono {
+  margin-right: 1rem;
+}
+
+a.heart {
+  color: none !important;
+}
+.heartClicked {
+  color: none;
+}
+
+.heartClicked i {
+  color: red;
+}
+
+.follow-links {
+  color: black;
+  text-decoration: none;
+}
+
+.home-img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}

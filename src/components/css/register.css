@@ -1,0 +1,66 @@
+#colum1 {
+  background-color: #08a0e9;
+  color: white;
+  position: relative;
+  height: 100vh;
+}
+
+#logoTwitter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 4rem 0rem 0rem 4rem;
+  width: 50px;
+  height: 50px;
+}
+
+#colum1 h3 {
+  /* vertical-align: bottom; */
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0 0 4rem 4rem;
+}
+
+#colum2 {
+  background-color: white;
+  /* padding: 250px 50px; */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#btnSingUp {
+  background-color: #08a0e9;
+  color: white;
+}
+
+a {
+  color: #08a0e9;
+}
+
+@media (max-width: 768px) {
+  #colum1 {
+    display: none;
+  }
+}
+@media (max-width: 992px) {
+  #colum1 {
+    flex: 1;
+  }
+  #colum2 {
+    flex: 1;
+  }
+}
+
+@media (min-width: 993px) {
+  #colum1 {
+    flex: 2;
+  }
+  #colum2 {
+    flex: 1;
+  }
+}

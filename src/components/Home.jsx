@@ -4,6 +4,8 @@ import Tweet from "./Tweet";
 import Sidebar from "./Sidebar";
 import LikeButton from "./LikeButton";
 import TweetModal from "./tweetModal";
+import "./css/home.css";
+import "./css/styles.css";
 
 function Home() {
   return (

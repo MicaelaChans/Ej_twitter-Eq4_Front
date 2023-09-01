@@ -1,0 +1,39 @@
+.login-left {
+  background-color: #08a0e9;
+  height: 100vh;
+  position: relative;
+}
+
+.login-right {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-btn {
+  background-color: #08a0e9;
+  border-color: #08a0e9;
+}
+
+#colum1 {
+  position: relative;
+}
+
+.login-greeting {
+  vertical-align: bottom;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0 0 4rem 4rem;
+}
+
+.login-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 4rem 0rem 0rem 4rem;
+  width: 50px;
+  height: 50px;
+}

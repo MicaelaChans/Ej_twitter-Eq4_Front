@@ -1,0 +1,52 @@
+/* Colocar aquí CSS "propio". */
+:root {
+  --main-btn-color: #08a0e9;
+}
+
+/* SIDEBAR */
+
+.trends-principal-text {
+  font-size: 1.1rem;
+}
+.trends-secondary-text {
+  font-size: 0.9rem;
+}
+.trends-terciary-text {
+  font-size: 0.6rem;
+}
+
+.follow-user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.follow-img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.5rem;
+}
+
+.follow-text {
+  font-size: 0.9rem;
+}
+
+.follow-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-follow {
+  background-color: var(--main-btn-color);
+  color: white;
+  padding: 5px 1rem;
+}
+
+.btn-follow:hover {
+  color: var(--main-btn-color);
+  border: solid 1px;
+  border-color: var(--main-btn-color);
+}
