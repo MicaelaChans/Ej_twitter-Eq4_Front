@@ -3,6 +3,7 @@ import NavBar from "./NavBar";
 import Tweet from "./Tweet";
 import Sidebar from "./Sidebar";
 import LikeButton from "./LikeButton";
+import TweetModal from "./tweetModal";
 
 function Home() {
   return (
