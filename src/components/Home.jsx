@@ -15,7 +15,7 @@ function Home() {
           <NavBar />
         </div>
         <div className="col-xxl-7 col-xl-7 col-lg-7 col-10 border py-3">
-          <p>form</p>
+          <Tweet />
         </div>
         <div className="col-xxl-3 col-xl-3 col-lg-4 d-none d-xl-block d-lg-block">
           <Sidebar />
