@@ -13,7 +13,7 @@ function NewTweet() {
             name="content"
             className="form-control home-tweet"
             id="textarea"
-            maxlength="140"
+            maxLength="140"
             cols="4"
             rows="3"
             placeholder="What's happening?"

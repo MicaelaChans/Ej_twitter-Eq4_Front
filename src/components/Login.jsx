@@ -42,6 +42,8 @@ function Login() {
               aria-describedby="emailHelp"
               placeholder="Username or email"
               name="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
           <div className="mb-3">
@@ -52,6 +54,8 @@ function Login() {
               id="password"
               placeholder="Password"
               name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <button
