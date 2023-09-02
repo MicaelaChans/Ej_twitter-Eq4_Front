@@ -1,3 +1,11 @@
-const tweet = 0;
+import { createSlice } from "@reduxjs/toolkit";
 
-export default tweet;
+const tweetSlice = createSlice({
+  name: "tweet",
+  initialState: [],
+  reducers: {},
+});
+
+const { actions, reducer } = tweetSlice;
+export const { login, logout } = actions;
+export default reducer;

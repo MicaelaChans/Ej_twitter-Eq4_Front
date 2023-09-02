@@ -11,7 +11,10 @@ function Register() {
       <div className="col-md-6 col-lg-4" id="colum2">
         <h2 className="text-start">Sign up</h2>
         <p>Create an account and start using twitter</p>
-        <form method="POST" action="/register" enctype="multipart/form-data">
+        <form
+          method="POST"
+          action="/register" /*enctype="multipart/form-data"*/
+        >
           <div className="mb-3 mt-3">
             <input
               type="firstname"
