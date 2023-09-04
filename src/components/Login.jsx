@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./css/login.css";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -9,19 +9,20 @@ import { useNavigate } from "react-router-dom";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [datosApi, setDatosApi] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await axios({
-      method: "POST",
-      url: process.env.URL_TOKEN,
+      method: "post",
+      url: import.meta.env.VITE_URL_LOGIN,
       data: { password, username },
     });
     response.data.token && dispatch(login(response.data));
     navigate("/");
-  };
+  }
 
   return (
     <div className="row m-0">
