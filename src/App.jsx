@@ -19,8 +19,7 @@ function App() {
           element={<Navigate replace to="/login" />}
         />
         <Route path="/" element={<Home />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/perfil" element={<Navigate replace to="/profile" />} />
+        <Route path="/:username" element={<Profile />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

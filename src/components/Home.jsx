@@ -17,6 +17,7 @@ function Home() {
   useEffect(() => {
     if (!user) return navigate("/login");
   }, []);
+  console.log(user);
 
   return (
     <div className="container">

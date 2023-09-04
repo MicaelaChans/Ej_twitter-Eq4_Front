@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-//en el link de tweet, generar una function show para abrir el modal
-
 function NavBar() {
+  const handleShow = () => setShow(true);
+
   return (
     <>
       <header className="vh-100 nav-position">
@@ -30,12 +30,12 @@ function NavBar() {
                 Profile
               </NavLink>
             </li>
-            <NavLink to="/tweetModal" className="d-xl-none d-xxl-none nav-list">
+            <NavLink className="d-xl-none d-xxl-none nav-list">
               <i className="bi bi-brush-fill icons-nav-btn btn nav-btn rounded-circle"></i>
             </NavLink>
             <NavLink
-              to="/tweetModal"
               className="btn d-none d-xl-block rounded-pill nav-btn my-2 fw-bold"
+              onClick={handleShow}
             >
               Tweet
             </NavLink>
