@@ -1,10 +1,8 @@
-import React from "react";
-
 function UserProfile() {
   return (
     <div className="row background mb-4">
       <div className="col">
-        <img src="user.profilePic" alt="" className="profile-img" />
+        <img src="./img/profile.jpg" alt="" className="profile-img" />
         <h4 className="mb-0 mt-4">user.firstname user.lastname</h4>
         <h6>user.username</h6>
       </div>

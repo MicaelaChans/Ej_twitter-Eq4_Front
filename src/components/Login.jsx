@@ -13,16 +13,21 @@ function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await axios({
       method: "post",
       url: import.meta.env.VITE_URL_LOGIN,
       data: { password, username },
     });
-    response.data.token && dispatch(login(response.data));
-    navigate("/");
-  }
+    console.log(response.data.token);
+    if (response.data.token) {
+      dispatch(login(response.data));
+      navigate("/");
+    } else {
+      console.log(response.data);
+    }
+  };
 
   return (
     <div className="row m-0">

@@ -5,7 +5,6 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
-import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -19,9 +18,7 @@ function App() {
           element={<Navigate replace to="/login" />}
         />
         <Route path="/" element={<Home />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/perfil" element={<Navigate replace to="/profile" />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/:username" element={<Profile />} />
       </Routes>
     </>
   );
