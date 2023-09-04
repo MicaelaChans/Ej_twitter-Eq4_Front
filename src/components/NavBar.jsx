@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 function NavBar() {
   const handleShow = () => setShow(true);
 
+  const loggedUser = useSelector((state) => state.user.userFound);
+  console.log(loggedUser);
   return (
     <>
       <header className="vh-100 nav-position">
@@ -26,7 +29,10 @@ function NavBar() {
               <NavLink to="/profile">
                 <i className="bi bi-person nav-icons me-xl-3"></i>
               </NavLink>
-              <NavLink to="/profile" className="d-none d-xl-block nav-links">
+              <NavLink
+                to={`/${loggedUser.username}`}
+                className="d-none d-xl-block nav-links"
+              >
                 Profile
               </NavLink>
             </li>

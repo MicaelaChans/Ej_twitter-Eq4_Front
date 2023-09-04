@@ -23,6 +23,12 @@ function Login() {
     console.log(response.data.token);
     response.data.token && dispatch(login(response.data));
     navigate("/");
+    if (response.data.token) {
+      dispatch(login(response.data));
+      navigate("/");
+    } else {
+      console.log(response.data);
+    }
   };
 
   return (
