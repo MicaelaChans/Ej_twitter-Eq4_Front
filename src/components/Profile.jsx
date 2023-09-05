@@ -31,6 +31,8 @@ function Profile() {
     getUsers();
   }, [username]);
 
+  console.log(paramsUser);
+
   return (
     paramsUser && (
       <div className="container">

@@ -1,12 +1,14 @@
 import React from "react";
 import LikeButton from "./LikeButton";
+import { useSelector } from "react-redux";
 
 function NewTweet() {
+  const loggedUser = useSelector((state) => state.user.userFound);
 
   return (
     <div className="row">
       <div className="col-1">
-        <img className="home-img" src="./img/profile.jpg" alt="profileImg" />
+        <img className="home-img" src={loggedUser.profilePic} alt="profileImg" />
       </div>
       <div className="col-11">
         <form action="/tweet" method="post">
