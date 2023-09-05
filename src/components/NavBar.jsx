@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { login } from "../redux/userSlice";
 
 function NavBar() {
+  const dispatch = useDispatch();
   const handleShow = () => setShow(true);
+  const handleLogout = () => {
+    dispatch(login(null));
+  };
 
   const loggedUser = useSelector((state) => state.user.userFound);
   return (
@@ -45,12 +50,17 @@ function NavBar() {
               Tweet
             </NavLink>
           </ul>
-          <NavLink to="/logout" className="d-xl-none d-xxl-none nav-list">
+          <NavLink
+            to="/login"
+            className="d-xl-none d-xxl-none nav-list"
+            onClick={() => handleLogout()}
+          >
             <i className="bi bi-box-arrow-right nav-icons-btn btn btn-danger rounded-circle"></i>
           </NavLink>
           <NavLink
-            to="/logout"
+            to="/login"
             className="btn btn-danger d-none d-xl-block rounded-pill"
+            onClick={() => handleLogout()}
           >
             Logout
           </NavLink>
