@@ -70,7 +70,7 @@ function Following() {
                     />
                     <div className="ms-2 d-flex flex-column">
                       <NavLink
-                        to={`/following/${paramsUser.username}`}
+                        to={`/${following.username}`}
                         className="follow-links"
                       >
                         <h6 className="mb-0">
