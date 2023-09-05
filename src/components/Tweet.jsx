@@ -2,8 +2,7 @@ import React from "react";
 import LikeButton from "./LikeButton";
 import { useSelector } from "react-redux";
 
-function Tweet() {
-  //const tweet = useSelector((state) => state.tweet);
+function Tweet({ paramsUser }) {
   return (
     <div className="form-floating mt-2">
       <div className="row border-bottom my-2 py-3">

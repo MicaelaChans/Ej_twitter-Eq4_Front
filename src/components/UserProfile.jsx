@@ -23,7 +23,6 @@ function UserProfile() {
     };
     getUsers();
   }, [username]);
-  console.log(profileUser);
 
   return (
     profileUser && (

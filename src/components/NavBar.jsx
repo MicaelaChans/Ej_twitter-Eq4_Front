@@ -6,7 +6,6 @@ function NavBar() {
   const handleShow = () => setShow(true);
 
   const loggedUser = useSelector((state) => state.user.userFound);
-  console.log(loggedUser);
   return (
     <>
       <header className="vh-100 nav-position">
