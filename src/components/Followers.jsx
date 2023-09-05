@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 function Followers() {
-
   const { username } = useParams();
   const user = useSelector((state) => state.user);
   const [paramsUser, setParamsUser] = useState();
@@ -28,63 +27,74 @@ function Followers() {
     getUsers();
   }, [username]);
 
-  return paramsUser && (
-    <div className="container">
-      <div className="row">
-        <div className="col-xxl-2 col-xl-2 col-lg-1 col-2">
-          <NavBar />
-        </div>
-        <div className="col-xxl-7 col-xl-7 col-lg-7 col-10 py-3 border">
-          <div className="d-flex align-items-center">
-            <a href="/user.username">
-              <i className="bi bi-arrow-left-short me-2"></i>
-            </a>
-            <div>
-              <h4 className="m-0"> {paramsUser.firstname} {paramsUser.lastname}</h4>
-              <h6>@{paramsUser.username}</h6>
-            </div>
+  return (
+    paramsUser && (
+      <div className="container">
+        <div className="row">
+          <div className="col-xxl-2 col-xl-2 col-lg-1 col-2">
+            <NavBar />
           </div>
-          <div className="d-flex justify-content-evenly my-3 border-bottom">
-            <h5 className="m-0 mt-2 pb-2 borderFollowers">Followers</h5>
-            <h5 className="m-0 mt-2 pb-2">
-              <a
-                href="/user.username/following"
-                className="text-decoration-none text-black"
-              >
-                Following
+          <div className="col-xxl-7 col-xl-7 col-lg-7 col-10 py-3 border">
+            <div className="d-flex align-items-center">
+              <a href="/user.username">
+                <i className="bi bi-arrow-left-short me-2"></i>
               </a>
-            </h5>
-          </div>
-          {paramsUser.followersUsers.map((follower) =>
-          <div key={follower._id} className="d-flex justify-content-between align-items-center mb-4">
-            <a href="/follower.username" className="follow-links">
-              <div className="d-flex align-items-center">
-                <img
-                  src={follower.profilePic}
-                  /*src="/img/follower.profilePic"*/ alt="profilePic"
-                  className="home-img"
-                />
-                <div className="d-flex align-items-center">
-                  <div className="ms-2 d-flex flex-column">
-                    <h6 className="mb-0">{follower.firstname} {follower.lastname}</h6>
-                    <p className="mb-0">@{follower.username}</p>
-                  </div>
-                </div>
+              <div>
+                <h4 className="m-0">
+                  {" "}
+                  {paramsUser.firstname} {paramsUser.lastname}
+                </h4>
+                <h6>@{paramsUser.username}</h6>
               </div>
-            </a>
-            <a
-              href="/followers/follower.username"
-              className="btn btn-follow rounded-pill btnFollowers"
-            >
-              Follow
-            </a>
-          </div>)}
-        </div>
-        <div className="col-xxl-3 col-xl-3 col-lg-4 d-none d-xl-block d-lg-block">
-          <Sidebar />
+            </div>
+            <div className="d-flex justify-content-evenly my-3 border-bottom">
+              <h5 className="m-0 mt-2 pb-2 borderFollowers">Followers</h5>
+              <h5 className="m-0 mt-2 pb-2">
+                <a
+                  href={`/${paramsUser.username}/following`}
+                  className="text-decoration-none text-black"
+                >
+                  Following
+                </a>
+              </h5>
+            </div>
+            {paramsUser.followersUsers.map((follower) => (
+              <div
+                key={follower._id}
+                className="d-flex justify-content-between align-items-center mb-4"
+              >
+                <a href="/follower.username" className="follow-links">
+                  <div className="d-flex align-items-center">
+                    <img
+                      src={follower.profilePic}
+                      alt="profilePic"
+                      className="home-img"
+                    />
+                    <div className="d-flex align-items-center">
+                      <div className="ms-2 d-flex flex-column">
+                        <h6 className="mb-0">
+                          {follower.firstname} {follower.lastname}
+                        </h6>
+                        <p className="mb-0">@{follower.username}</p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a
+                  href="/followers/follower.username"
+                  className="btn btn-follow rounded-pill btnFollowers"
+                >
+                  Follow
+                </a>
+              </div>
+            ))}
+          </div>
+          <div className="col-xxl-3 col-xl-3 col-lg-4 d-none d-xl-block d-lg-block">
+            <Sidebar />
+          </div>
         </div>
       </div>
-    </div>
+    )
   );
 }
 
