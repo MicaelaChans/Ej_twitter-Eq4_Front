@@ -2,6 +2,7 @@ import React from "react";
 import LikeButton from "./LikeButton";
 
 function NewTweet() {
+
   return (
     <div className="row">
       <div className="col-1">
