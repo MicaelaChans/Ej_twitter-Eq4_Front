@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 
 function Following() {
   const { username } = useParams();
@@ -36,9 +37,9 @@ function Following() {
           </div>
           <div className="col-xxl-7 col-xl-7 col-lg-7 col-10 py-3 border">
             <div className="d-flex align-items-center">
-              <a href="/user.username">
+              <NavLink to={`/${user.userFound.username}`}>
                 <i className="bi bi-arrow-left-short me-2"></i>
-              </a>
+              </NavLink>
               <div>
                 <h4 className="m-0">
                   {" "}
@@ -49,21 +50,18 @@ function Following() {
             </div>
             <div className="d-flex justify-content-evenly my-3 border-bottom">
               <h5 className="m-0 mt-2 pb-2">
-                <a
-                  href={`/${paramsUser.username}/followers`}
+                <NavLink
+                  to={`/${paramsUser.username}/followers`}
                   className="text-decoration-none text-black"
                 >
                   Followers
-                </a>
+                </NavLink>
               </h5>
               <h5 className="m-0 mt-2 pb-2 borderFollowers">Following</h5>
             </div>
             {paramsUser.followingUsers.map((following) => (
-              <a href="/following.username" className="follow-links">
-                <div
-                  key={following._id}
-                  className="d-flex justify-content-between align-items-center mb-4"
-                >
+              <div key={following._id}>
+                <div className="d-flex justify-content-between align-items-center mb-4">
                   <div className="d-flex align-items-center">
                     <img
                       src={following.profilePic}
@@ -71,20 +69,25 @@ function Following() {
                       className="home-img"
                     />
                     <div className="ms-2 d-flex flex-column">
-                      <h6 className="mb-0">
-                        {following.firstname} {following.lastname}
-                      </h6>
-                      <p className="mb-0">@{following.username}</p>
+                      <NavLink
+                        to={`/following/${paramsUser.username}`}
+                        className="follow-links"
+                      >
+                        <h6 className="mb-0">
+                          {following.firstname} {following.lastname}
+                        </h6>
+                        <p className="mb-0">@{following.username}</p>
+                      </NavLink>
                     </div>
                   </div>
-                  <a
-                    href="/following/following.username"
+                  <NavLink
+                    to="/following/following.username"
                     className="btn btn-outline-dark rounded-pill"
                   >
                     Following
-                  </a>
+                  </NavLink>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
           <div className="col-xxl-3 col-xl-3 col-lg-4 d-none d-xl-block d-lg-block">

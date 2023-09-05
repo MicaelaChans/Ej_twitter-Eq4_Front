@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 
 function Followers() {
   const { username } = useParams();
@@ -36,9 +37,9 @@ function Followers() {
           </div>
           <div className="col-xxl-7 col-xl-7 col-lg-7 col-10 py-3 border">
             <div className="d-flex align-items-center">
-              <a href="/user.username">
+              <NavLink to={`/${user.userFound.username}`}>
                 <i className="bi bi-arrow-left-short me-2"></i>
-              </a>
+              </NavLink>
               <div>
                 <h4 className="m-0">
                   {" "}
@@ -50,12 +51,12 @@ function Followers() {
             <div className="d-flex justify-content-evenly my-3 border-bottom">
               <h5 className="m-0 mt-2 pb-2 borderFollowers">Followers</h5>
               <h5 className="m-0 mt-2 pb-2">
-                <a
-                  href={`/${paramsUser.username}/following`}
+                <NavLink
+                  to={`/${paramsUser.username}/following`}
                   className="text-decoration-none text-black"
                 >
                   Following
-                </a>
+                </NavLink>
               </h5>
             </div>
             {paramsUser.followersUsers.map((follower) => (
@@ -63,7 +64,7 @@ function Followers() {
                 key={follower._id}
                 className="d-flex justify-content-between align-items-center mb-4"
               >
-                <a href="/follower.username" className="follow-links">
+                <NavLink to={`/${follower.username}`} className="follow-links">
                   <div className="d-flex align-items-center">
                     <img
                       src={follower.profilePic}
@@ -79,13 +80,13 @@ function Followers() {
                       </div>
                     </div>
                   </div>
-                </a>
-                <a
-                  href="/followers/follower.username"
+                </NavLink>
+                <NavLink
+                  to="/followers/follower.username"
                   className="btn btn-follow rounded-pill btnFollowers"
                 >
                   Follow
-                </a>
+                </NavLink>
               </div>
             ))}
           </div>
