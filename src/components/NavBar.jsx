@@ -26,7 +26,7 @@ function NavBar() {
               </NavLink>
             </li>
             <li className="d-flex align-items-center mb-2 nav-list">
-              <NavLink to="/profile">
+              <NavLink to={`/${loggedUser.username}`}>
                 <i className="bi bi-person nav-icons me-xl-3"></i>
               </NavLink>
               <NavLink

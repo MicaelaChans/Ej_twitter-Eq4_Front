@@ -43,9 +43,7 @@ function Profile() {
         <div className="col-xxl-7 col-xl-7 col-lg-7 col-10 border">
           <UserProfile />
           <div className="border-bottom">
-            <h5 className="m-0 mt-2 pb-2 borderTweet">
-              Tweets {users && users.username}
-            </h5>
+            <h5 className="m-0 mt-2 pb-2 borderTweet">Tweets</h5>
           </div>
           <Tweet />
         </div>

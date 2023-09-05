@@ -6,6 +6,8 @@ import Login from "./components/Login";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
 import NotFound from "./components/NotFound";
+import Following from "./components/Following";
+import Followers from "./components/Followers";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         />
         <Route path="/" element={<Home />} />
         <Route path="/:username" element={<Profile />} />
+        <Route path="/:username/following" element={<Following />} />
+        <Route path="/:username/followers" element={<Followers />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
