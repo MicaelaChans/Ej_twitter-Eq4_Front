@@ -1,25 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import LikeButton from "./LikeButton";
 import { useSelector } from "react-redux";
+import axios from "axios";
 
 function NewTweet() {
+  const user = useSelector((state) => state.user);
   const loggedUser = useSelector((state) => state.user.userFound);
+  const [content, setContent] = useState("");
+
+  const handleSubmit = async () => {
+    const response = await axios({
+      url: "http://localhost:3000/tweets",
+      method: "POST",
+      data: { content },
+      headers: {
+        Authorization: "Bearer " + (user && user.token),
+      },
+    });
+  };
 
   return (
     <div className="row">
       <div className="col-1">
-        <img className="home-img" src={loggedUser.profilePic} alt="profileImg" />
+        <img
+          className="home-img"
+          src={loggedUser.profilePic}
+          alt="profileImg"
+        />
       </div>
       <div className="col-11">
-        <form action="/tweet" method="post">
+        <form action="" onSubmit={handleSubmit}>
           <textarea
             name="content"
             className="form-control home-tweet"
-            id="textarea"
+            id="content"
             maxLength="140"
             cols="4"
             rows="3"
             placeholder="What's happening?"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
           ></textarea>
           <div className="d-flex justify-content-end mt-2 mb-2">
             <button className="btn rounded-pill" type="submit" id="btnTweet">
