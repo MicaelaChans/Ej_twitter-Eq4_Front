@@ -4,9 +4,9 @@ import Tweet from "./Tweet";
 import Sidebar from "./Sidebar";
 import "./css/profile.css";
 import UserProfile from "./UserProfile";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { redirect, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function Profile() {
@@ -30,6 +30,17 @@ function Profile() {
     };
     getUsers();
   }, [username]);
+
+  const handleSubmit = async (tweetId) => {
+    const response = await axios({
+      url: `http://localhost:3000/tweets/${tweetId}`,
+      method: "DELETE",
+      data: { tweetId },
+      headers: {
+        Authorization: "Bearer " + (user && user.token),
+      },
+    });
+  };
 
   return (
     paramsUser && (
@@ -86,14 +97,19 @@ function Profile() {
                           </div>
                         </div>
                         <div className="d-flex">
-                          <form
-                            action="/tweet/tweet.id?_method=DELETE"
-                            method="get"
-                          >
-                            <button href="tweet.id">
-                              <i className="bi bi-trash-fill color: tomato"></i>
-                            </button>
-                          </form>
+                          {`${window.location.href}` ===
+                          `http://localhost:5173/${user.userFound.username}` ? (
+                            <form
+                              action=""
+                              onClick={() => handleSubmit(tweet._id)}
+                            >
+                              <button type="submit">
+                                <i className="bi bi-trash-fill"></i>
+                              </button>
+                            </form>
+                          ) : (
+                            ""
+                          )}
                         </div>
                       </div>
                     </div>
