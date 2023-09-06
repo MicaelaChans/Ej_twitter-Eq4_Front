@@ -10,7 +10,7 @@ function TweetModal({ show, handleClose }) {
         </Modal.Header>
 
         <Modal.Body>
-          <NewTweet />
+          <NewTweet handleClose={handleClose} />
         </Modal.Body>
       </Modal>
     </div>

@@ -3,7 +3,7 @@ import LikeButton from "./LikeButton";
 import { useSelector } from "react-redux";
 import axios from "axios";
 
-function NewTweet() {
+function NewTweet({ handleClose }) {
   const user = useSelector((state) => state.user);
   const loggedUser = useSelector((state) => state.user.userFound);
   const [content, setContent] = useState("");
@@ -18,6 +18,7 @@ function NewTweet() {
         Authorization: "Bearer " + (user && user.token),
       },
     });
+    handleClose();
   };
 
   return (
