@@ -6,8 +6,8 @@ import "./css/profile.css";
 import UserProfile from "./UserProfile";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import { redirect, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 function Profile() {
   const user = useSelector((state) => state.user);
@@ -99,14 +99,12 @@ function Profile() {
                         <div className="d-flex">
                           {`${window.location.href}` ===
                           `http://localhost:5173/${user.userFound.username}` ? (
-                            <form
-                              action=""
+                            <button
+                              type="submit"
                               onClick={() => handleSubmit(tweet._id)}
                             >
-                              <button type="submit">
-                                <i className="bi bi-trash-fill"></i>
-                              </button>
-                            </form>
+                              <i className="bi bi-trash-fill"></i>
+                            </button>
                           ) : (
                             ""
                           )}

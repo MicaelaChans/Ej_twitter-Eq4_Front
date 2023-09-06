@@ -8,7 +8,8 @@ function NewTweet() {
   const loggedUser = useSelector((state) => state.user.userFound);
   const [content, setContent] = useState("");
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const response = await axios({
       url: "http://localhost:3000/tweets",
       method: "POST",

@@ -19,11 +19,11 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/registro" element={<Navigate replace to="/register" />} />
         <Route path="/login" element={<Login />} />
+        <Route
+          path="/iniciar-sesion"
+          element={<Navigate replace to="/login" />}
+        />
         <Route element={<ProtectedRoute user={user} />}>
-          <Route
-            path="/iniciar-sesion"
-            element={<Navigate replace to="/login" />}
-          />
           <Route path="/" element={<Home />} />
           <Route path="/:username" element={<Profile />} />
           <Route path="/:username/following" element={<Following />} />
