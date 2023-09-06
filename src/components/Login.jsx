@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { loginUser } from "../redux/userSlice";
 import { loginTweet } from "../redux/tweetSlice";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -21,7 +21,8 @@ function Login() {
       data: { password, username },
     });
     console.log(response.data.token);
-    response.data.token && dispatch(loginUser(response.data), loginTweet(response.data));
+    response.data.token &&
+      dispatch(loginUser(response.data), loginTweet(response.data));
     navigate("/");
     if (response.data.token) {
       dispatch(loginUser(response.data), loginTweet(response.data));
@@ -73,7 +74,7 @@ function Login() {
             Login
           </button>
           <p className="text-center mt-4">
-            Don't have an account? <a href="/register">Sign up</a>
+            Don't have an account? <NavLink to="/register">Sign up</NavLink>
           </p>
         </form>
       </div>

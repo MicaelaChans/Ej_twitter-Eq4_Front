@@ -2,19 +2,18 @@ import React from "react";
 import "./css/register.css";
 import { useForm } from "react-hook-form";
 import { registerRequest } from "../api/apiAuth";
-import { redirect } from "react-router-dom";
+import { NavLink, redirect } from "react-router-dom";
 
 function Register() {
-
   const { register, handleSubmit } = useForm();
 
   const registerSubmit = handleSubmit(async (values) => {
     console.log(values);
-    const response = await registerRequest(values)
-    console.log("Llamada realizada, usuario creado")
+    const response = await registerRequest(values);
+    console.log("Llamada realizada, usuario creado");
     redirect("/profile");
-    console.log(response)
-    })
+    console.log(response);
+  });
 
   return (
     <div className="row m-0">
@@ -28,12 +27,13 @@ function Register() {
         <form
           method="POST"
           onSubmit={registerSubmit}
-          action="/register" encType="multipart/form-data"
+          action="/register"
+          encType="multipart/form-data"
         >
           <div className="mb-3 mt-3">
             <input
               type="firstname"
-              {...register("firstname", {required: true})}
+              {...register("firstname", { required: true })}
               className="form-control"
               id="firstname"
               aria-describedby="firstname"
@@ -44,7 +44,7 @@ function Register() {
           <div className="mb-3 mt-3">
             <input
               type="lastname"
-              {...register("lastname", {required: true})}
+              {...register("lastname", { required: true })}
               className="form-control"
               id="lastname"
               aria-describedby="lastname"
@@ -55,7 +55,7 @@ function Register() {
           <div className="mb-3 mt-3">
             <input
               type="email"
-              {...register("email", {required: true})}
+              {...register("email", { required: true })}
               className="form-control"
               id="email"
               aria-describedby="email"
@@ -66,7 +66,7 @@ function Register() {
           <div className="mb-3 mt-3">
             <input
               type="username"
-              {...register("username", {required: true})}
+              {...register("username", { required: true })}
               className="form-control"
               id="username"
               aria-describedby="username"
@@ -77,7 +77,7 @@ function Register() {
           <div className="mb-3 mt-3">
             <input
               type="file"
-              {...register("profilePic", {required: false})}
+              {...register("profilePic", { required: false })}
               placeholder="cdsfse"
               className="form-control"
               id="profilePic"
@@ -87,7 +87,7 @@ function Register() {
           <div className="mb-3 mt-3">
             <input
               type="password"
-              {...register("password", {required: true})}
+              {...register("password", { required: true })}
               className="form-control"
               id="password"
               aria-describedby="password"
@@ -103,7 +103,7 @@ function Register() {
             Sign up
           </button>
           <p className="text-center mt-4" id="aSingIn">
-            Already have an account? <a href="/login">Sign in</a>
+            Already have an account? <NavLink to="/login">Sign in</NavLink>
           </p>
         </form>
       </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function UserProfile() {
   const user = useSelector((state) => state.user);
@@ -38,27 +38,27 @@ function UserProfile() {
         <div className="col d-flex flex-column-reverse text-end align-items-end">
           <div>
             <div className="d-flex align-items-start justify-content-end">
-              <a
-                href="/followers/user.username"
+              <NavLink
+                to="/followers/user.username"
                 className="btn btn-follow rounded-pill"
               >
                 Follow
-              </a>
+              </NavLink>
             </div>
-            <Link
+            <NavLink
               to={`/${username}/following`}
               className="profile-text text-decoration-none text-black"
             >
               <span className="me-1">{profileUser.followingUsers.length}</span>
               Following
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to={`/${username}/followers`}
               className="ms-2 profile-text text-decoration-none text-black"
             >
               <span className="me-1">{profileUser.followersUsers.length}</span>
               Followers
-            </Link>
+            </NavLink>
           </div>
         </div>
       </div>

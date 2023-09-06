@@ -7,7 +7,8 @@ import UserProfile from "./UserProfile";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
+import LikeButton from "./LikeButton";
 
 function Profile() {
   const user = useSelector((state) => state.user);
@@ -67,11 +68,11 @@ function Profile() {
                     </div>
                     <div className="col-11">
                       <div id="dat1">
-                        <a href="/" className="link-dark">
+                        <NavLink to="/" className="link-dark">
                           <h5 className="m-0 d-inline-block">
                             {paramsUser.firstname} {paramsUser.lastname}
                           </h5>
-                        </a>
+                        </NavLink>
                         <p className="m-0 d-inline-block">
                           @{paramsUser.username} ·{" "}
                           {tweet.createdAt.toLocaleDateString}
@@ -83,10 +84,7 @@ function Profile() {
                       <div className="container-flex">
                         <div className="d-flex align-items-center">
                           <div className="icono d-flex align-items-center">
-                            <a href="/tweet/like/" className="p-0 me-2 heart">
-                              <i className="bi bi-heart-fill text-danger"></i>
-                              <i className="bi bi-heart-fill text-dark"></i>
-                            </a>
+                            <LikeButton />
                             <p className="m-0">{tweet.likes.length}</p>
                           </div>
                           <div className="icono">

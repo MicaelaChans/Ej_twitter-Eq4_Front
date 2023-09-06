@@ -9,7 +9,7 @@ import "./css/styles.css";
 import NewTweet from "./NewTweet";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Home() {
   const navigate = useNavigate();
@@ -42,11 +42,11 @@ function Home() {
                   </div>
                   <div className="col-11">
                     <div id="dat1">
-                      <a href="/" className="link-dark">
+                      <NavLink to="/" className="link-dark">
                         <h5 className="m-0 d-inline-block">
                           {tweet.author.firstname} {tweet.author.lastname}
                         </h5>
-                      </a>
+                      </NavLink>
                       <p className="m-0 d-inline-block">
                         @{tweet.author.username} ·{" "}
                         {tweet.createdAt.toLocaleDateString}
@@ -58,10 +58,7 @@ function Home() {
                     <div className="container-flex">
                       <div className="d-flex align-items-center">
                         <div className="icono d-flex align-items-center">
-                          <a href="/tweet/like/" className="p-0 me-2 heart">
-                            <i className="bi bi-heart-fill text-danger"></i>
-                            <i className="bi bi-heart-fill text-dark"></i>
-                          </a>
+                          <LikeButton />
                           <p className="m-0">{tweet.likes.length}</p>
                         </div>
                         <div className="icono">

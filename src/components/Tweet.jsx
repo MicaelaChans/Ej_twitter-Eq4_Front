@@ -1,6 +1,7 @@
 import React from "react";
 import LikeButton from "./LikeButton";
 import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 function Tweet({ paramsUser }) {
   return (
@@ -11,11 +12,11 @@ function Tweet({ paramsUser }) {
         </div>
         <div className="col-11">
           <div id="dat1">
-            <a href="/" className="link-dark">
+            <NavLink to="/" className="link-dark">
               <h5 className="m-0 d-inline-block">
                 user.firstname user.lastname
               </h5>
-            </a>
+            </NavLink>
             <p className="m-0 d-inline-block">
               user.username · tweet.createdAt.toLocaleDateString
             </p>
@@ -26,10 +27,10 @@ function Tweet({ paramsUser }) {
           <div className="container-flex">
             <div className="d-flex align-items-center">
               <div className="icono d-flex align-items-center">
-                <a href="/tweet/like/" className="p-0 me-2 heart">
+                <NavLink href="/tweet/like/" className="p-0 me-2 heart">
                   <i className="bi bi-heart-fill text-danger"></i>
                   <i className="bi bi-heart-fill text-dark"></i>
-                </a>
+                </NavLink>
                 <p className="m-0">tweet.likes.length</p>
               </div>
               <div className="icono">
