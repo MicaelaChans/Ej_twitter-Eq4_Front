@@ -1,14 +1,22 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { loginUser } from "../redux/userSlice";
 import { loginTweet } from "../redux/tweetSlice";
+import TweetModal from "./TweetModal";
 
 function NavBar() {
   const dispatch = useDispatch();
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => {
+    console.log("aprete el boton");
+    setShow(false);
+  };
+
   const handleShow = () => setShow(true);
+
   const handleLogout = () => {
-    dispatch(loginTweet(null));
     dispatch(loginUser(null));
   };
 
@@ -43,8 +51,12 @@ function NavBar() {
               </NavLink>
             </li>
             <NavLink className="d-xl-none d-xxl-none nav-list">
-              <i className="bi bi-brush-fill icons-nav-btn btn nav-btn rounded-circle"></i>
+              <i
+                className="bi bi-brush-fill icons-nav-btn btn nav-btn rounded-circle"
+                onClick={handleShow}
+              ></i>
             </NavLink>
+
             <NavLink
               className="btn d-none d-xl-block rounded-pill nav-btn my-2 fw-bold"
               onClick={handleShow}
@@ -68,6 +80,7 @@ function NavBar() {
           </NavLink>
         </nav>
       </header>
+      <TweetModal show={show} handleClose={handleClose} />
     </>
   );
 }
