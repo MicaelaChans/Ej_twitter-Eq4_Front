@@ -10,6 +10,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
 import LikeButton from "./LikeButton";
+import { formatDistanceToNow } from "date-fns";
 =======
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -88,7 +89,9 @@ function Profile() {
                         <p className="m-0 d-inline-block">
                           @{paramsUser.username} ·{" "}
 <<<<<<< Updated upstream
-                          {tweet.createdAt.toLocaleDateString}
+                          {formatDistanceToNow(new Date(tweet.createdAt), {
+                            addSuffix: true,
+                          })}
 =======
 >>>>>>> Stashed changes
                         </p>

@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 <<<<<<< Updated upstream
+import { formatDistanceToNow } from "date-fns";
 =======
 >>>>>>> Stashed changes
 
@@ -58,7 +59,9 @@ function Home() {
                       </NavLink>
                       <p className="m-0 d-inline-block">
                         @{tweet.author.username} ·{" "}
-                        {tweet.createdAt.toLocaleDateString}
+                        {formatDistanceToNow(new Date(tweet.createdAt), {
+                          addSuffix: true,
+                        })}
                       </p>
                     </div>
                     <div>
