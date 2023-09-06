@@ -9,6 +9,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
 import LikeButton from "./LikeButton";
+import { formatDistanceToNow } from "date-fns";
 
 function Profile() {
   const user = useSelector((state) => state.user);
@@ -75,7 +76,9 @@ function Profile() {
                         </NavLink>
                         <p className="m-0 d-inline-block">
                           @{paramsUser.username} ·{" "}
-                          {tweet.createdAt.toLocaleDateString}
+                          {formatDistanceToNow(new Date(tweet.createdAt), {
+                            addSuffix: true,
+                          })}
                         </p>
                       </div>
                       <div>

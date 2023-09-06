@@ -10,6 +10,7 @@ import NewTweet from "./NewTweet";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
+import { formatDistanceToNow } from "date-fns";
 
 function Home() {
   const navigate = useNavigate();
@@ -49,7 +50,9 @@ function Home() {
                       </NavLink>
                       <p className="m-0 d-inline-block">
                         @{tweet.author.username} ·{" "}
-                        {tweet.createdAt.toLocaleDateString}
+                        {formatDistanceToNow(new Date(tweet.createdAt), {
+                          addSuffix: true,
+                        })}
                       </p>
                     </div>
                     <div>
