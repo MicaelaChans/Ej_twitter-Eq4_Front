@@ -3,7 +3,8 @@ import "./css/login.css";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
-import { login } from "../redux/userSlice";
+import { loginUser } from "../redux/userSlice";
+import { loginTweet } from "../redux/tweetSlice";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
@@ -20,10 +21,10 @@ function Login() {
       data: { password, username },
     });
     console.log(response.data.token);
-    response.data.token && dispatch(login(response.data));
+    response.data.token && dispatch(loginUser(response.data), loginTweet(response.data));
     navigate("/");
     if (response.data.token) {
-      dispatch(login(response.data));
+      dispatch(loginUser(response.data), loginTweet(response.data));
       navigate("/");
     } else {
       console.log(response.data);

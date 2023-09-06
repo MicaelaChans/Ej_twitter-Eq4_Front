@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { login } from "../redux/userSlice";
+import { loginUser } from "../redux/userSlice";
+import { loginTweet } from "../redux/tweetSlice";
 
 function NavBar() {
   const dispatch = useDispatch();
   const handleShow = () => setShow(true);
   const handleLogout = () => {
-    dispatch(login(null));
+    dispatch(loginTweet(null));
+    dispatch(loginUser(null));
   };
 
   const loggedUser = useSelector((state) => state.user.userFound);
