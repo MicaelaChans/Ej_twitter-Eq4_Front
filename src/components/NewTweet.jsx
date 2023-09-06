@@ -1,16 +1,12 @@
 import React, { useState } from "react";
 import LikeButton from "./LikeButton";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import axios from "axios";
-import { v4 as uuidv4 } from 'uuid';
-import { createTweet } from "../redux/userSlice";
-
 
 function NewTweet({ handleClose }) {
   const user = useSelector((state) => state.user);
   const loggedUser = useSelector((state) => state.user.userFound);
   const [content, setContent] = useState("");
-  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,11 +18,7 @@ function NewTweet({ handleClose }) {
         Authorization: "Bearer " + (user && user.token),
       },
     });
-<<<<<<< Updated upstream
     handleClose();
-=======
-    dispatch(createTweet({ id: uuidv4(), content: content, author: { loggedUser }, likes: [] }));
->>>>>>> Stashed changes
   };
 
   return (

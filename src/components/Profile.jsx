@@ -6,46 +6,34 @@ import "./css/profile.css";
 import UserProfile from "./UserProfile";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
-<<<<<<< Updated upstream
 import { useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
 import LikeButton from "./LikeButton";
 import { formatDistanceToNow } from "date-fns";
-=======
-import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
-import { deleteTweet } from "../redux/userSlice";
->>>>>>> Stashed changes
 
 function Profile() {
   const user = useSelector((state) => state.user);
   const [paramsUser, setParamsUser] = useState();
   const { username } = useParams();
-  const dispatch = useDispatch();
-  const userLogged = user.userFound;
 
- useEffect(() => {
-    if (username === userLogged.username) {
-      setParamsUser(userLogged);
-    } else {
-      const getUsers = async () => {
-        const response = await axios({
-          method: "GET",
-          url: "http://localhost:3000/users",
-          headers: {
-            Authorization: "Bearer " + (user && user.token),
-          },
-        });
-        const profileUser = response.data.find(
-          (user) => user.username === username
-        );
-        setParamsUser(profileUser);
-      };
-      getUsers();
-    }
-  },);
+  useEffect(() => {
+    const getUsers = async () => {
+      const response = await axios({
+        method: "GET",
+        url: "http://localhost:3000/users",
+        headers: {
+          Authorization: "Bearer " + (user && user.token),
+        },
+      });
+      const profileUser = response.data.find(
+        (user) => user.username === username
+      );
+      setParamsUser(profileUser);
+    };
+    getUsers();
+  }, [username]);
 
-  const handleDelete = async (tweetId) => {
+  const handleSubmit = async (tweetId) => {
     const response = await axios({
       url: `http://localhost:3000/tweets/${tweetId}`,
       method: "DELETE",
@@ -88,12 +76,9 @@ function Profile() {
                         </NavLink>
                         <p className="m-0 d-inline-block">
                           @{paramsUser.username} ·{" "}
-<<<<<<< Updated upstream
                           {formatDistanceToNow(new Date(tweet.createdAt), {
                             addSuffix: true,
                           })}
-=======
->>>>>>> Stashed changes
                         </p>
                       </div>
                       <div>
@@ -102,16 +87,8 @@ function Profile() {
                       <div className="container-flex">
                         <div className="d-flex align-items-center">
                           <div className="icono d-flex align-items-center">
-<<<<<<< Updated upstream
                             <LikeButton />
                             <p className="m-0">{tweet.likes.length}</p>
-=======
-                            <a href="/tweet/like/" className="p-0 me-2 heart">
-                              <i className="bi bi-heart-fill text-danger"></i>
-                              <i className="bi bi-heart-fill text-dark"></i>
-                            </a>
-                            {/* <p className="m-0">{tweet.likes}</p> */}
->>>>>>> Stashed changes
                           </div>
                           <div className="icono">
                             <i className="bi bi-repeat"></i>
@@ -125,7 +102,7 @@ function Profile() {
                           `http://localhost:5173/${user.userFound.username}` ? (
                             <button
                               type="submit"
-                              onClick={() => handleDelete(tweet._id)}
+                              onClick={() => handleSubmit(tweet._id)}
                             >
                               <i className="bi bi-trash-fill"></i>
                             </button>
