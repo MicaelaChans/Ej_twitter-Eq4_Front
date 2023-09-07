@@ -4,12 +4,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { loginUser } from "../redux/userSlice";
-<<<<<<< Updated upstream
-import { loginTweet } from "../redux/tweetSlice";
 import { NavLink, useNavigate } from "react-router-dom";
-=======
-import { useNavigate } from "react-router-dom";
->>>>>>> Stashed changes
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -25,12 +20,7 @@ function Login() {
       data: { password, username },
     });
     console.log(response.data.token);
-<<<<<<< Updated upstream
-    response.data.token &&
-      dispatch(loginUser(response.data), loginTweet(response.data));
-=======
     response.data.token && dispatch(loginUser(response.data));
->>>>>>> Stashed changes
     navigate("/");
     if (response.data.token) {
       dispatch(loginUser(response.data));

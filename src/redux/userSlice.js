@@ -8,20 +8,24 @@ const userSlice = createSlice({
       return action.payload;
     },
     createTweet(state, action) {
-      state.selfTweets.push(action.payload);
-      state.userFound.tweetsList.push(action.payload);
+      state.tweetsList.push(action.payload);
+      state.allTweets.push(action.payload);
     },
     deleteTweet(state, action) {
       return state.filter((tweet) => action.payload !== tweet.id);
     },
     likeTweet(state, action) {
-      const likedTweet = state.userFound.tweetsList.find(
-        (tweet) => tweet.id === action.payload
+      console.log(action.payload);
+      const tweet = state.likedTweets.find(
+        (tweet) => tweet._id === action.payload
       );
-      const likedSelfTweet = state.selfTweets.find(
-        (tweet) => tweet.id === action.payload
-      );
-      likedTweet.likes.push(action.payload);
+      console.log(tweet);
+      if (!tweet.likes.includes(state.user.id)) {
+        tweet.likes.push(state.user.id);
+      } else {
+        tweet.likes.pull(state.user.id);
+      }
+      return state.filter((tweet) => action.payload !== tweet.id);
     },
     logout(state, action) {
       return null;
@@ -30,5 +34,6 @@ const userSlice = createSlice({
 });
 
 const { actions, reducer } = userSlice;
-export const { loginUser, logout, createTweet, deleteTweet } = actions;
+export const { loginUser, logout, createTweet, deleteTweet, likeTweet } =
+  actions;
 export default reducer;

@@ -4,11 +4,13 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { v4 as uuidv4 } from 'uuid';
 import { createTweet } from "../redux/userSlice";
+import { formatDistanceToNow, parse } from "date-fns";
+
 
 
 function NewTweet({ handleClose }) {
   const user = useSelector((state) => state.user);
-  const loggedUser = useSelector((state) => state.user.userFound);
+  const loggedUser = useSelector((state) => state.user);
   const [content, setContent] = useState("");
   const dispatch = useDispatch();
 
@@ -22,11 +24,12 @@ function NewTweet({ handleClose }) {
         Authorization: "Bearer " + (user && user.token),
       },
     });
-<<<<<<< Updated upstream
-    handleClose();
-=======
-    dispatch(createTweet({ id: uuidv4(), content: content, author: { loggedUser }, likes: [] }));
->>>>>>> Stashed changes
+    dispatch(createTweet({ id: uuidv4(), content: content, likes: [""], author: {id: loggedUser.id,
+        username: loggedUser.username,
+        firstname: loggedUser.firstname,
+        lastname: loggedUser.lastname,
+      profilePic: loggedUser.profilePic,
+    }}));
   };
 
   return (

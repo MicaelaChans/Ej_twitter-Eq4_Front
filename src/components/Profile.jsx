@@ -6,23 +6,18 @@ import "./css/profile.css";
 import UserProfile from "./UserProfile";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
-<<<<<<< Updated upstream
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
 import LikeButton from "./LikeButton";
 import { formatDistanceToNow } from "date-fns";
-=======
-import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
-import { deleteTweet } from "../redux/userSlice";
->>>>>>> Stashed changes
+import { likeTweet } from "../redux/userSlice";
 
 function Profile() {
   const user = useSelector((state) => state.user);
   const [paramsUser, setParamsUser] = useState();
   const { username } = useParams();
   const dispatch = useDispatch();
-  const userLogged = user.userFound;
+  const userLogged = user;
 
  useEffect(() => {
     if (username === userLogged.username) {
@@ -56,6 +51,19 @@ function Profile() {
     });
   };
 
+  const handleLike = async (tweetId) => {
+    const response = await axios({
+      url: `http://localhost:3000/tweets/like/${tweetId}`,
+      method: "PATCH",
+      data: { tweetId },
+      headers: {
+        Authorization: "Bearer " + (user && user.token),
+      },
+    });
+    dispatch(likeTweet(tweetId));
+    console.log("Me gusta el Tweet front")
+  }
+
   return (
     paramsUser && (
       <div className="container">
@@ -87,13 +95,8 @@ function Profile() {
                           </h5>
                         </NavLink>
                         <p className="m-0 d-inline-block">
-                          @{paramsUser.username} ·{" "}
-<<<<<<< Updated upstream
-                          {formatDistanceToNow(new Date(tweet.createdAt), {
-                            addSuffix: true,
-                          })}
-=======
->>>>>>> Stashed changes
+                          @{paramsUser.username} ·
+                          {/* {tweet.createdAt} */}
                         </p>
                       </div>
                       <div>
@@ -102,16 +105,12 @@ function Profile() {
                       <div className="container-flex">
                         <div className="d-flex align-items-center">
                           <div className="icono d-flex align-items-center">
-<<<<<<< Updated upstream
-                            <LikeButton />
-                            <p className="m-0">{tweet.likes.length}</p>
-=======
-                            <a href="/tweet/like/" className="p-0 me-2 heart">
-                              <i className="bi bi-heart-fill text-danger"></i>
-                              <i className="bi bi-heart-fill text-dark"></i>
-                            </a>
-                            {/* <p className="m-0">{tweet.likes}</p> */}
->>>>>>> Stashed changes
+                              <button onClick={()=>handleLike(tweet._id)} className="p-0 me-2 heart">
+                                {tweet.likes.includes(userLogged.id)?
+                                <i className="bi bi-heart-fill text-danger"></i> :
+                                <i className="bi bi-heart-fill text-dark"></i>}
+                              </button>
+                            <p className="m-0">{(tweet.likes.length)-1}</p>
                           </div>
                           <div className="icono">
                             <i className="bi bi-repeat"></i>
@@ -122,7 +121,7 @@ function Profile() {
                         </div>
                         <div className="d-flex">
                           {`${window.location.href}` ===
-                          `http://localhost:5173/${user.userFound.username}` ? (
+                          `http://localhost:5173/${user.username}` ? (
                             <button
                               type="submit"
                               onClick={() => handleDelete(tweet._id)}

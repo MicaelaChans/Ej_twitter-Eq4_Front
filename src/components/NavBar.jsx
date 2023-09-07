@@ -10,7 +10,6 @@ function NavBar() {
 
   const [show, setShow] = useState(false);
   const handleClose = () => {
-    console.log("aprete el boton");
     setShow(false);
   };
 
@@ -20,7 +19,7 @@ function NavBar() {
     dispatch(loginUser(null));
   };
 
-  const loggedUser = useSelector((state) => state.user.userFound);
+  const loggedUser = useSelector((state) => state.user);
   return (
     <>
       <header className="vh-100 nav-position">
