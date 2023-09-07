@@ -105,12 +105,12 @@ function Profile() {
                       <div className="container-flex">
                         <div className="d-flex align-items-center">
                           <div className="icono d-flex align-items-center">
-                              <button onClick={()=>handleLike(tweet._id)} className="p-0 me-2 heart">
+                              <button id={tweet._id} onClick={()=>handleLike(tweet._id)} className="p-0 me-2 heart">
                                 {tweet.likes.includes(userLogged.id)?
                                 <i className="bi bi-heart-fill text-danger"></i> :
                                 <i className="bi bi-heart-fill text-dark"></i>}
                               </button>
-                            <p className="m-0">{(tweet.likes.length)-1}</p>
+                            <p className="m-0">{tweet.likes.length}</p>
                           </div>
                           <div className="icono">
                             <i className="bi bi-repeat"></i>
