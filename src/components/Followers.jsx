@@ -37,7 +37,7 @@ function Followers() {
           </div>
           <div className="col-xxl-7 col-xl-7 col-lg-7 col-10 py-3 border">
             <div className="d-flex align-items-center">
-              <NavLink to={`/${user.userFound.username}`}>
+              <NavLink to={`/${user.username}`}>
                 <i className="bi bi-arrow-left-short me-2"></i>
               </NavLink>
               <div>
