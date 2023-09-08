@@ -25,7 +25,7 @@ const userSlice = createSlice({
       } else {
         tweet.likes.pull(state.user.id);
       }
-      return state.filter((tweet) => action.payload !== tweet.id);
+      return action.payload;
     },
     logout(state, action) {
       return null;

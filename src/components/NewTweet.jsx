@@ -24,7 +24,7 @@ function NewTweet({ handleClose }) {
         Authorization: "Bearer " + (user && user.token),
       },
     });
-    dispatch(createTweet({ id: uuidv4(), content: content, likes: [""], author: {id: loggedUser.id,
+    dispatch(createTweet({ _id: uuidv4(), content: content, likes: [""], author: {id: loggedUser.id,
         username: loggedUser.username,
         firstname: loggedUser.firstname,
         lastname: loggedUser.lastname,
